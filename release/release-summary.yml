@@ -1,5 +1,15 @@
-status: unknown
+status: blocked
 environment: production
-version: latest
-approval: pending
-rollback: none
+version: unresolved
+approval: rejected
+rollback: not-defined
+reviewDate: 2026-10-08
+blockers:
+  - version-untraceable
+  - rollback-plan-missing
+  - no-real-tests
+  - plaintext-secret-in-terraform-variables
+notes: >
+  Version is unresolved: README claims v2.3.0, package.json says 1.0.0, release.json says 1.0,
+  and scripts/deploy.sh publishes the mutable tag "latest". Reconcile to a single version
+  before re-review.

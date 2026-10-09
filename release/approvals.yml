@@ -1,3 +1,10 @@
-approvedBy: 
-reviewDate: 
-releaseManager: 
+approvedBy:
+reviewDate: 2026-10-08
+releaseManager:
+decision: rejected
+reason: >
+  Not ready for production. Remaining blockers: the version is untraceable (package.json
+  1.0.0, release.json 1.0, README v2.3.0, scripts/deploy.sh publishes "latest"); there is no
+  rollback plan (rollback.yml empty, rollback.sh a stub); npm test validates nothing; and a
+  plaintext credential remains in deployment/terraform/variables.tf. Pipeline ordering and two
+  of the three secret leaks have been fixed, but the release-readiness gates are not met.

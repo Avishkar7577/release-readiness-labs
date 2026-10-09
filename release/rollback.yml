@@ -1,2 +1,11 @@
-rollback_strategy: 
-target_version: 
+rollback_strategy: not-defined
+target_version: not-defined
+blocked: true
+reason: >
+  No rollback strategy or target version is defined, and no immutable artifact exists to
+  return to - scripts/deploy.sh publishes the mutable "latest" tag. A release cannot be
+  approved without a tested rollback path.
+required_before_approval:
+  - Publish immutable, version-tagged images.
+  - Record the last known-good version as target_version.
+  - Implement scripts/rollback.sh (currently a stub) and test it once.
